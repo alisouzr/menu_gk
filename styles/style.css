@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* paleta de cores */
+:root{
+    --cor1: #FFFFFF;
+    --cor2: #F6F7F8;
+    --cor3: #000000;
+    --cor4: #FF3131; 
+    --cor5: #54CC0A;
+    --cor6: #FF3131;
+}
+
+body {
+    background-color: var(--cor2);
+}
