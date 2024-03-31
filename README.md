@@ -1,6 +1,6 @@
-## Hamburgueria - Red Burguer
+## Cardápio Online - Hamburgueria Red Burguer
 
-Este projeto consiste no desenvolvimento de um site de pedidos de uma para uma hamburgueria fictícia, onde os pedidos são enviados diretamente pelo número do Whatsapp, sem a necessidade de cadastro do cliente. Este projeto foi ministrado pelo Matheus Fraga, dono do Canal Sujeito Programdos.
+Este projeto consiste no desenvolvimento de um site de pedidos de uma para uma hamburgueria fictícia, onde os pedidos são enviados diretamente pelo número do Whatsapp, sem a necessidade de cadastro do cliente. Este projeto foi ministrado pelo Matheus Fraga, dono do Canal Sujeito Programador.
 
 ## Funcionalidades
 
