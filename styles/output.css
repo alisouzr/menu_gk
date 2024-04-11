@@ -868,8 +868,38 @@ video {
   --cor6: #FF3131;
 }
 
-body {
-  background-color: var(--cor2);
+.add-from-cart-btn, .remove-from-cart-btn {
+  border: 1px;
+  border-style: solid;
+  padding: 3px 8px;
+  width: 88px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.add-from-cart-btn:hover, .remove-from-cart-btn:hover {
+  transform: scale(1.02);
+}
+
+.add-from-cart-btn:active, .remove-from-cart-btn:active {
+  transform: scale(1.0);
+}
+
+.add-from-cart-btn {
+  color: var(--cor5);
+  border-color: var(--cor5);
+}
+
+.remove-from-cart-btn {
+  color: var(--cor4);
+  border-color: var(--cor4);
+}
+
+@media (max-width: 768px) {
+  .cart-btn-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .hover\:-rotate-2:hover {
@@ -881,6 +911,17 @@ body {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.active\:scale-100:active {
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.active\:bg-gray-700:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 
 @media (min-width: 768px) {
@@ -901,3 +942,9 @@ body {
     line-height: 2.25rem;
   }
 }
+
+
+
+
+
+

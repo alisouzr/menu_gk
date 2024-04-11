@@ -42,13 +42,13 @@ menu.addEventListener("click", (event) => {
 
 })
 
-
 function addToCart(name, price) {
 
     const existingItem = cart.find(item => item.name === name);
 
     if (existingItem) {
         existingItem.quantity += 1;
+        updateCartModal();
         return
     } else {
         cart.push({
@@ -78,9 +78,15 @@ function updateCartModal(){
                     <p class="font-medium mt-2">R$ ${item.price.toFixed(2)}</p>
                 </div>
 
-                <button class="remove-from-cart-btn" data-name="${item.name}">
-                    Remover
-                </button>
+                <div class="cart-btn-container gap-2">
+                    <button class="add-from-cart-btn" data-name="${item.name}">
+                        Adicionar
+                    </button>
+                    <button class="remove-from-cart-btn" data-name="${item.name}">
+                        Remover
+                    </button>
+                </div>
+
 
             </div>
             `
@@ -105,6 +111,15 @@ cartItemsContainer.addEventListener("click", (event) => {
         removeItemCart(name);
     }
 })
+
+cartItemsContainer.addEventListener("click", (event) => {
+    if(event.target.classList.contains("add-from-cart-btn")){
+        const name = event.target.getAttribute("data-name")
+
+        addToCart(name);
+    }
+})
+
 
 function removeItemCart(name) {
     const index = cart.findIndex(item => item.name === name)
