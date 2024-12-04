@@ -683,6 +683,7 @@ video {
 
 .justify-center {
   justify-content: center;
+  text-align: center;
 }
 
 .justify-between {
@@ -943,8 +944,9 @@ video {
   }
 }
 
-
-
-
+.search{
+  margin: 10px;
+  width: 333px;
+}
 
 
