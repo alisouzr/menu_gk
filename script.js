@@ -176,16 +176,20 @@ checkoutBtn.addEventListener("click", () => {
         return;
     }
 
+    totalValue = 0
+
     const cartItems = cart.map((item) => {
+        totalValue += item.price
         return (
-            ` ${item.name} Quantidade: (${item.quantity}) Preço: ${item.price} |`
+            ` ${item.name} Quantidade: (${item.quantity}) Preço: ${item.price} |\n`
         )
     }).join("")
 
-    const message = encodeURIComponent(cartItems)
-    const phone = "41996546683"
 
-    window.open(`https://wa.me/${phone}?text=${message} Endereco: ${addressInput.value}`, "_black")
+    const message = encodeURIComponent(cartItems + `\n*Valor total: ${totalValue.toFixed(2)}*\n`)
+    const phone = "92984309366"
+
+    window.open(`https://wa.me/${phone}?text=${message}Endereco: ${addressInput.value}`, "_black")
 
     cart = [];
     updateCartModal();
@@ -194,7 +198,7 @@ checkoutBtn.addEventListener("click", () => {
 function checkRestaurantOpen() {
     const data = new Date();
     const hora = data.getHours();
-    return hora >= 18 && hora < 24;
+    return hora >= 8 && hora < 23;
 }
 
 const spanItem = document.getElementById("date-span")
