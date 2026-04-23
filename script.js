@@ -165,7 +165,7 @@ checkoutBtn.addEventListener("click", () => {
             },
         }).showToast();
 
-        return
+        return;
     }
 
     if(cart.length === 0) return;
@@ -176,24 +176,32 @@ checkoutBtn.addEventListener("click", () => {
         return;
     }
 
-    totalValue = 0
+    // 1. Adicionado 'let' para declarar a variável corretamente
+    let totalValue = 0;
 
     const cartItems = cart.map((item) => {
-        totalValue += item.price
+        // 2. CORREÇÃO: Multiplicando o preço pela quantidade do item
+        totalValue += item.price * item.quantity;
+        
+        // Formatei o texto para ficar mais legível no WhatsApp
         return (
-            ` ${item.name} Quantidade: (${item.quantity}) Preço: ${item.price} |\n`
-        )
-    }).join("")
+            `* ${item.name} | Qtd: ${item.quantity} | Preço Un: R$ ${item.price.toFixed(2)} \n`
+        );
+    }).join("");
 
+    // 3. Coloquei o endereço para dentro do encodeURIComponent para evitar quebra de formatação de URL
+    const message = encodeURIComponent(
+        `Novo Pedido:\n\n${cartItems}\n*Valor total: R$ ${totalValue.toFixed(2)}*\n\nEndereço: ${addressInput.value}`
+    );
+    
+    const phone = "92984309366";
 
-    const message = encodeURIComponent(cartItems + `\n*Valor total: ${totalValue.toFixed(2)}*\n`)
-    const phone = "92984309366"
-
-    window.open(`https://wa.me/${phone}?text=${message}Endereco: ${addressInput.value}`, "_black")
+    // 4. Correção de "_black" para "_blank"
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 
     cart = [];
     updateCartModal();
-})
+});
 
 function checkRestaurantOpen() {
     const data = new Date();
